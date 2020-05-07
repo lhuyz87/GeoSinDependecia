@@ -40,7 +40,7 @@ public class AppLoginPage extends PageObject {
 	public void inicializar() {
 		open();
 		getDriver().manage().deleteAllCookies();
-		getDriver().manage().window().maximize();
+//		getDriver().manage().window().maximize();
 		// getDriver().manage().window().fullscreen();
 		getDriver().manage().timeouts().implicitlyWait(1L, TimeUnit.SECONDS);
 	}
