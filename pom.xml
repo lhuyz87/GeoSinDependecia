@@ -109,9 +109,6 @@
 							<includes>
 								<include>**/**Rimac*.*</include>
 							</includes>
-							<systemProperties>
-								<webdriver.driver>chrome</webdriver.driver>
-							</systemProperties>
 						</configuration>
 					</plugin>
 				</plugins>
@@ -131,7 +128,7 @@
 						<include>**/**Rimac**.java</include>
 					</includes>
 					<systemProperties>
-						<webdriver.driver>chrome</webdriver.driver>
+						<webdriver.driver>${webdriver.driver}</webdriver.driver>
 					</systemProperties>
 				</configuration>
 			</plugin>
