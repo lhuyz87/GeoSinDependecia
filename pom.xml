@@ -25,6 +25,7 @@
 		<tags></tags>
 		<parallel.tests>1</parallel.tests>
 		<webdriver.base.url></webdriver.base.url>
+		<webdriver.driver>chrome</webdriver.driver>
 		<argLine>-Xmx128m</argLine>
 	</properties>
 
