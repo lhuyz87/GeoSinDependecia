@@ -44,7 +44,7 @@ pipeline {
                     try {
                     	//sh ("echo ${WORKSPACE}")
                     	sh ("echo ${defTimestamp}")
-                    	publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "/var/lib/jenkins/workspace/P-RegresionVidaLeyGrupo/target/site/serenity", reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+                    	publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "/var/lib/jenkins/workspace/Geolocalizacion_SinDependencia/target/site/serenity", reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
                     	//publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${WORKSPACE}/target/site/serenity${defTimestamp}", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: ''])
                     	//publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${WORKSPACE}\\target\\site\\serenity${defTimestamp}", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: ''])
                         echo 'Reporte realizado con exito'
