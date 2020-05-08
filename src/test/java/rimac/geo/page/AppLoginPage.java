@@ -38,6 +38,10 @@ public class AppLoginPage extends PageObject {
 	}
 
 	public void inicializar() {
+		
+		String path = System.getProperty("src/test/resources/driver/chromedriver-79");
+		System.setProperty("getDriver()",path);
+		
 		open();
 		getDriver().manage().deleteAllCookies();
 		getDriver().manage().window().maximize();
