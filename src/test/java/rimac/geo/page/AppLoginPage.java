@@ -39,8 +39,8 @@ public class AppLoginPage extends PageObject {
 
 	public void inicializar() {
 		System.out.println("+++++++++++++++INICIALIZAR TEST +++++++++++++++++" );
-		String path = System.getProperty("src/test/resources/driver/chromedriver-79");
-		System.setProperty("webdriver.driver",path);
+//		String path = System.getProperty("src/test/resources/driver/chromedriver-79");
+//		System.setProperty("webdriver.driver",path);
 		
 		open();
 		getDriver().manage().deleteAllCookies();
