@@ -92,6 +92,31 @@
 			<artifactId>poi-ooxml</artifactId>
 			<version>4.1.0</version>
 		</dependency>
+		
+			<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>1.8.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>3.8.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.11</version>
+			<scope>test</scope>
+		</dependency>
+		
+		
 	</dependencies>
 
 	<profiles>
@@ -142,7 +167,7 @@
 						<!-- <include>**/**Runner**.java</include> -->
 					</includes>
 					<systemPropertyVariables>
-						<webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
+						<webdriver.base.url>chrome</webdriver.base.url>
 					</systemPropertyVariables>
 					<parallel>classes</parallel>
 					<threadCount>${parallel.tests}</threadCount>
