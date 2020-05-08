@@ -1,6 +1,6 @@
 package rimac.geo.step;
 
-//import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertEquals;
 
 import net.thucydides.core.annotations.Step;
 import rimac.geo.page.AppLoginPage;
@@ -69,7 +69,7 @@ public class AppAtencionVehicular {
 	@Step
 	public void validarMensajePlacaEnUso(String mensaje) {
 		String mensajeObtenido = appRegistrarCaso.validarMensajePlacaEnUso(mensaje);
-//		assertEquals(mensaje,mensajeObtenido);
+		assertEquals(mensaje,mensajeObtenido);
 	}
 	
 }

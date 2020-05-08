@@ -1,6 +1,6 @@
 package rimac.geo.step;
 
-//import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertEquals;
 
 import net.thucydides.core.annotations.Step;
 import rimac.geo.page.AppLoginPage;
@@ -43,6 +43,6 @@ public class AppCentralProcuracion {
 	
 	public void validarCambioEstado(String estado) {
 		String estadoMostrado = appPrincipalPageCentProc.validarCambioEstado();
-//		assertEquals(estado, estadoMostrado);
+		assertEquals(estado, estadoMostrado);
 	}
 }
