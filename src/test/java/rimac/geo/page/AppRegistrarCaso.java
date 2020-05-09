@@ -114,7 +114,7 @@ public class AppRegistrarCaso extends PageObject {
 	
 	public String  validarmensaje(String mensaje) {
 		
-		pageObjectUtil.esperar_visibilidad_elemento(getDriver(), 10, xpathPagPrincipal.msjRegistroExito);
+		pageObjectUtil.esperar_visibilidad_elemento(getDriver(), 20, xpathPagPrincipal.msjRegistroExito);
 		Serenity.takeScreenshot();
 		String mensajeObtenido =pageObjectUtil.seleniumGetTexto(getDriver(), xpathPagPrincipal.msjRegistroExito, 0);
 		
