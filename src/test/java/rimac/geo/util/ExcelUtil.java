@@ -210,7 +210,7 @@ public class ExcelUtil {
 
       try {
        //Initialize
-    	  System.out.println("############" + ExcelSheetPath);
+//    	  System.out.println("############" + ExcelSheetPath);
     		File file = new File(ExcelSheetPath);
     		
     		FileInputStream fileInputStream = new FileInputStream(file);
@@ -321,7 +321,7 @@ public class ExcelUtil {
 		while (rowIterator.hasNext()) {
 			row = rowIterator.next();
 			//se obtiene las celdas por fila
-			System.out.println(sheet.getRow(fila).getCell(columna).getStringCellValue() + " VS " +valor);
+//			System.out.println(sheet.getRow(fila).getCell(columna).getStringCellValue() + " VS " +valor);
 			if(sheet.getRow(fila).getCell(columna).getStringCellValue().compareTo(valor)==0){
 				break;
 			}else {

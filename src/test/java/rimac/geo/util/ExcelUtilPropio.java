@@ -33,7 +33,7 @@ public class ExcelUtilPropio extends ExcelUtil {
 
 	public List<List<String>> excelToList(String excel, String hoja, String vez) {
 		List<List<String>> data = new ArrayList<List<String>>();
-		System.out.println("excel: " + excel + "-hoja: " + hoja + " VEZ: " + vez  );
+//		System.out.println("excel: " + excel + "-hoja: " + hoja + " VEZ: " + vez  );
 		try {
 			String[] excelSplit = excel.split("\\|");
 			// int v = Integer.parseInt(vez);
