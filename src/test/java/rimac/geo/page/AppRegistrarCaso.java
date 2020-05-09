@@ -74,6 +74,7 @@ public class AppRegistrarCaso extends PageObject {
 	public void ingresardireccion(String direccion) {
 		
 		pageObjectUtil.seleniumEscribirUntil(getDriver(), getWDW(), xpathNuevoCaso.txtDireccion, direccion, Keys.DOWN);
+		pageObjectUtil.sleep(1);
 		pageObjectUtil.insertarKey(getDriver(),xpathNuevoCaso.txtDireccion ,Keys.ENTER);
 		pageObjectUtil.sleep(2);
 		
