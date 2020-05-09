@@ -95,8 +95,7 @@ public class AppRegistrarCaso extends PageObject {
 			excelUtil.inciarExcel(Constantes.featRutaMobile, "Mobile");
 			excelUtil.WriteCell(0, GlobalFila, Coordenadas);
 			excelUtil.WriteCell(1, GlobalFila, GlobalPlaca);
-			
-			excelUtil.CloseExcel();
+
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println(e.getMessage());
