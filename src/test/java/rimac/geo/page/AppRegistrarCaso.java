@@ -107,11 +107,7 @@ public class AppRegistrarCaso extends PageObject {
 		}
 
 		GlobalFila = GlobalFila +1;
-
-		
-		
-		
-		pageObjectUtil.seleniumClickUntil(getDriver(), getWDW(), xpathNuevoCaso.btnEnviar);
+	pageObjectUtil.seleniumClickUntil(getDriver(), getWDW(), xpathNuevoCaso.btnEnviar);
 		}
 	
 	public String  validarmensaje(String mensaje) {
@@ -126,9 +122,6 @@ public class AppRegistrarCaso extends PageObject {
 	}
 	
 	public String validarMensajePlacaEnUso(String mensaje) {
-		
-		
-		
 		pageObjectUtil.esperar_visibilidad_elemento(getDriver(), 5, xpathPagPrincipal.msjPlacaDuplicada);
 		Serenity.takeScreenshot();
 		String mensajeObtenido =pageObjectUtil.seleniumGetTexto(getDriver(), xpathPagPrincipal.msjPlacaDuplicada, 0).substring(0,82);
