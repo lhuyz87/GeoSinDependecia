@@ -201,7 +201,7 @@ public class ExcelUtil {
 	}
 	
 	
-	public void inciarExcel(String ExcelSheetPath, String sheetName) throws IOException, InvalidFormatException {
+	public static void inciarExcel(String ExcelSheetPath, String sheetName) throws IOException, InvalidFormatException {
 		
 
 		File appDir = new File(ExcelSheetPath);
@@ -215,8 +215,8 @@ public class ExcelUtil {
           wrksheet = wrkbook.getSheet(sheetName);
 
           //Call the Column Dictionary to store column Names
-          ColumnDictionary();
-          SheetDictionary();
+//          ColumnDictionary();
+//          SheetDictionary();
       } catch (FileNotFoundException e) {
           e.printStackTrace();
       } catch (IOException e) {
@@ -317,7 +317,7 @@ public class ExcelUtil {
 		while (rowIterator.hasNext()) {
 			row = rowIterator.next();
 			//se obtiene las celdas por fila
-
+			System.out.println(wrksheet.getRow(fila).getCell(columna).getStringCellValue() + " VS " +valor);
 			if(wrksheet.getRow(fila).getCell(columna).getStringCellValue().compareTo(valor)==0){
 				break;
 			}else {
