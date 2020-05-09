@@ -69,14 +69,12 @@ public class ExcelUtil {
 		if (!rutaDestino.exists()) {
 			System.out.println("creando directorio local para los data driven");
 			rutaDestino.mkdir();
-		
+		}
 
 		for (int i = 0; i < archivos.length; i++) {
 			System.out.println(archivos[i]);
 			copiarArchivo(archivos[i], Constantes.rutaPlantillas, Constantes.ruta);
-		}
-		}else {
-			System.out.println("Directorio Existe");
+		
 		}
 	}
 
