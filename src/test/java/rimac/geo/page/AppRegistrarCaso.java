@@ -83,7 +83,7 @@ public class AppRegistrarCaso extends PageObject {
 	}
 	
 	public void ingresarreferencia(String referencia) {
-		
+		pageObjectUtil.sleep(2);
 		pageObjectUtil.seleniumEscribirUntil(getDriver(), getWDW(), xpathNuevoCaso.txtReferencia, referencia, Keys.TAB);
 	}
 	

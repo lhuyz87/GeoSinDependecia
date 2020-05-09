@@ -1171,7 +1171,7 @@ public class PageObjectUtil {
 		we.click();
 		we.clear();
 		we.sendKeys(valor);
-
+		sleep(2.0);
 		if (key != null) {
 			we.sendKeys(key);
 		}
