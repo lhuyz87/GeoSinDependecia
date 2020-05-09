@@ -304,6 +304,7 @@ public class ExcelUtil {
     public static void CloseExcel() throws IOException {
         FileOutputStream Fos = new FileOutputStream(archivo);
         wrkbook.write(Fos);
+        wrkbook.close();
         Fos.close();
     }
     
