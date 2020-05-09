@@ -69,7 +69,7 @@ public class AppPrincipalPageCentProc extends PageObject {
 	
 	public void seleccionarProcurador(String procurador) {
 		pageObjectUtil.sleep(3);
-		pageObjectUtil.seleniumComboSelect(getDriver(), xpathPagPrincipal.lstSelAgrupador, procurador);
+
 //		pageObjectUtil.seleniumClickUntil(getDriver(), getWDW(), xpathPagPrincipal.lstSelAgrupador);
 //		pageObjectUtil.sleep(1);
 //		pageObjectUtil.insertarKey(getDriver(),xpathPagPrincipal.lstSelAgrupador ,Keys.DOWN);
@@ -82,7 +82,7 @@ public class AppPrincipalPageCentProc extends PageObject {
 			int fila = excelUtil.buscar_valor( 1,GlobalPlaca);
 			System.out.println("************   " + fila);
 			excelUtil.WriteCell(2, fila, procurador);
-			excelUtil.CloseExcel();
+//			excelUtil.CloseExcel();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -91,7 +91,7 @@ public class AppPrincipalPageCentProc extends PageObject {
 			e.printStackTrace();
 		}	
 		
-		
+		pageObjectUtil.seleniumComboSelect(getDriver(), xpathPagPrincipal.lstSelAgrupador, procurador);
 		
 		
 	}

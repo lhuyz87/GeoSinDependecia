@@ -19,24 +19,27 @@ import java.util.List;
 
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.util.SystemOutLogger;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
-
+import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Cell;
 import com.ibm.icu.impl.InvalidFormatException;
 
 
 public class ExcelUtil {
 	
-    static XSSFWorkbook wrkbook;
-    static XSSFSheet wrksheet;
+//    static XSSFWorkbook wrkbook;
+//    static XSSFSheet wrksheet;
     static Hashtable dict = new Hashtable();
     static Hashtable dictData = new Hashtable();
     static Hashtable dictDataRow = new Hashtable();
     static int columna = 0;
     static String archivo = "";
+    static Workbook workbook;
+    static Sheet sheet; 
 
 	public void cerrarIn(FileInputStream fileInputStream) throws Exception {
 		if (fileInputStream != null) {
@@ -201,22 +204,23 @@ public class ExcelUtil {
 	}
 	
 	
-	public static void inciarExcel(String ExcelSheetPath, String sheetName) throws IOException, InvalidFormatException {
+	public void inciarExcel(String ExcelSheetPath, String sheetName) throws IOException, InvalidFormatException {
 		
+	
 
-		File appDir = new File(ExcelSheetPath);
-		archivo = ExcelSheetPath;
       try {
-//          FileInputStream archivo = new FileInputStream(new File("D:/workspace_automation/auto-modular/src/main/resources/resources/Data_EmisionClaimCenter.xlsx"));
-          FileInputStream archivo = new FileInputStream(new File(appDir.getAbsolutePath()));
+       //Initialize
+    	  System.out.println("############" + ExcelSheetPath);
+    		File file = new File(ExcelSheetPath);
+    		
+    		FileInputStream fileInputStream = new FileInputStream(file);
+    		workbook = WorkbookFactory.create(fileInputStream);
+    		sheet = !sheetName.isEmpty() ? workbook.getSheet(sheetName) : workbook.getSheetAt(0);
 
-          //Initialize
-          wrkbook = new XSSFWorkbook(archivo);
-          wrksheet = wrkbook.getSheet(sheetName);
 
           //Call the Column Dictionary to store column Names
-//          ColumnDictionary();
-//          SheetDictionary();
+          ColumnDictionary();
+          SheetDictionary();
       } catch (FileNotFoundException e) {
           e.printStackTrace();
       } catch (IOException e) {
@@ -225,7 +229,7 @@ public class ExcelUtil {
   }
 
     private static String ReadCell(int column, int row) {
-        Cell celda = wrksheet.getRow(row).getCell(column);
+        Cell celda = sheet.getRow(row).getCell(column);
         String valor;
         switch (celda.getCellTypeEnum()) {
             case STRING:
@@ -260,13 +264,13 @@ public class ExcelUtil {
     
     public static String WriteCell(int column, int row, String value) throws IOException {
 
-        wrksheet.getRow(row).createCell(column);
-        wrksheet.getRow(row).getCell(column).setCellValue(value);
-        wrksheet.getRow(row).getCell(column).setCellType(CellType.STRING);
+    	sheet.getRow(row).createCell(column);
+    	sheet.getRow(row).getCell(column).setCellValue(value);
+    	sheet.getRow(row).getCell(column).setCellType(CellType.STRING);
 //        System.out.print("\n Celda: " + wrksheet.getRow(row).getCell(column).getStringCellValue().toString() + "\n");
 //        System.out.print("\n *****");
-       
-        return wrksheet.getRow(row).getCell(column).getStringCellValue();
+    	workbook.close();
+        return sheet.getRow(row).getCell(column).getStringCellValue();
     }
 
 	   
@@ -275,7 +279,7 @@ public class ExcelUtil {
     //Create Column Dictionary to hold all the Column Names
     private static void ColumnDictionary() {
         //Iterate through all the columns in the Excel sheet and store the value in Hashtable
-        for (int col = 0; col < wrksheet.getRow(0).getLastCellNum(); col++) {
+        for (int col = 0; col < sheet.getRow(0).getLastCellNum(); col++) {
             dict.put(ReadCell(col, 0), col);
             String diccionario = dict.put(ReadCell(col, 0), col).toString();
             columna = Integer.parseInt(dict.put(ReadCell(col, 0), col).toString());
@@ -288,9 +292,9 @@ public class ExcelUtil {
 //        System.out.println("Total rows of excel found " + wrksheet.getLastRowNum() + "\n");
 //        System.out.println("Total columnas of excel found " + wrksheet.getRow(1).getLastCellNum());
 
-        for (int row = 0; row < wrksheet.getLastRowNum(); row++) {
+        for (int row = 0; row < sheet.getLastRowNum(); row++) {
             if (row != 0) {
-                for (int col = 0; col < wrksheet.getRow(row).getLastCellNum(); col++) {
+                for (int col = 0; col < sheet.getRow(row).getLastCellNum(); col++) {
 //                    System.out.println("-------------" + ReadCell(col, 0) + "   " + ReadCell(col, row));
                     dictData.put(ReadCell(col, 0), ReadCell(col, row));
                 }
@@ -303,22 +307,22 @@ public class ExcelUtil {
     
     public static void CloseExcel() throws IOException {
         FileOutputStream Fos = new FileOutputStream(archivo);
-        wrkbook.write(Fos);
-        wrkbook.close();
+        workbook.write(Fos);
+        workbook.close();
         Fos.close();
     }
     
     public static int buscar_valor(int columna, String valor) {
 
-    	Iterator<Row> rowIterator = wrksheet.iterator();
+    	Iterator<Row> rowIterator = sheet.iterator();
 		Row row;
 		int fila=1;
 		// se recorre cada fila hasta el final
 		while (rowIterator.hasNext()) {
 			row = rowIterator.next();
 			//se obtiene las celdas por fila
-			System.out.println(wrksheet.getRow(fila).getCell(columna).getStringCellValue() + " VS " +valor);
-			if(wrksheet.getRow(fila).getCell(columna).getStringCellValue().compareTo(valor)==0){
+			System.out.println(sheet.getRow(fila).getCell(columna).getStringCellValue() + " VS " +valor);
+			if(sheet.getRow(fila).getCell(columna).getStringCellValue().compareTo(valor)==0){
 				break;
 			}else {
 				fila++;
