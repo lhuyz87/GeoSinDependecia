@@ -88,10 +88,10 @@ public class AppPrincipalPageCentProc extends PageObject {
 
 		try {
 			excelUtil.inciarExcel(Constantes.featRutaMobile, "Mobile");
-			int fila = excelUtil.buscar_valor( 1,GlobalPlaca);
+			int fila = ExcelUtil.buscar_valor( 1,GlobalPlaca);
 			System.out.println("************   " + fila);
-			excelUtil.WriteCell(2, fila, procurador);
-			excelUtil.CloseExcel();
+			ExcelUtil.WriteCell(2, fila, procurador);
+			ExcelUtil.CloseExcel();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -210,7 +210,7 @@ public class ExcelUtil {
 	}
 	
 	
-	public static void inciarExcel(String ExcelSheetPath, String sheetName) throws IOException, InvalidFormatException {
+	public  void inciarExcel(String ExcelSheetPath, String sheetName) throws IOException, InvalidFormatException {
 		
 		
 
