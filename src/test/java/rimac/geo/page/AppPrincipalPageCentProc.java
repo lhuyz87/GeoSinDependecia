@@ -82,7 +82,7 @@ public class AppPrincipalPageCentProc extends PageObject {
 			int fila = excelUtil.buscar_valor( 1,GlobalPlaca);
 			System.out.println("************   " + fila);
 			excelUtil.WriteCell(2, fila, procurador);
-//			excelUtil.CloseExcel();
+			excelUtil.CloseExcel();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

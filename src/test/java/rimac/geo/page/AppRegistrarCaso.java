@@ -98,12 +98,7 @@ public class AppRegistrarCaso extends PageObject {
 			
 			System.out.println("**** " + valor_cor_grab);
 			System.out.println("**** " + valor_placa_grab);
-			try {
-				excelUtil.cerrarWb2();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			excelUtil.CloseExcel();
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println(e.getMessage());

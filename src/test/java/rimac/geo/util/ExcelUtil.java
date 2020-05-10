@@ -62,9 +62,9 @@ public class ExcelUtil {
 	}
 	
 	public void cerrarWb2() throws Exception {
-		if (workbook != null) {
+	
 			workbook.close();
-		}
+	
 	}
 
 	public void copiarPlantillas() {
@@ -210,15 +210,15 @@ public class ExcelUtil {
 	}
 	
 	
-	public void inciarExcel(String ExcelSheetPath, String sheetName) throws IOException, InvalidFormatException {
+	public static void inciarExcel(String ExcelSheetPath, String sheetName) throws IOException, InvalidFormatException {
 		
-	
+		
 
       try {
        //Initialize
     	  System.out.println("############" + ExcelSheetPath);
     		File file = new File(ExcelSheetPath);
-    		
+    		archivo = ExcelSheetPath;
     		FileInputStream fileInputStream = new FileInputStream(file);
     		workbook = WorkbookFactory.create(fileInputStream);
     		sheet = !sheetName.isEmpty() ? workbook.getSheet(sheetName) : workbook.getSheetAt(0);
@@ -273,9 +273,9 @@ public class ExcelUtil {
     	sheet.getRow(row).createCell(column);
     	sheet.getRow(row).getCell(column).setCellValue(value);
     	sheet.getRow(row).getCell(column).setCellType(CellType.STRING);
-//        System.out.print("\n Celda: " + wrksheet.getRow(row).getCell(column).getStringCellValue().toString() + "\n");
+        System.out.print("\n Celda: " + sheet.getRow(row).getCell(column).getStringCellValue().toString() + "\n");
 //        System.out.print("\n *****");
-    	
+        
         return sheet.getRow(row).getCell(column).getStringCellValue();
     }
 
@@ -319,7 +319,7 @@ public class ExcelUtil {
     }
     
     public static int buscar_valor(int columna, String valor) {
-
+    	
     	Iterator<Row> rowIterator = sheet.iterator();
 		Row row;
 		int fila=1;
@@ -328,11 +328,18 @@ public class ExcelUtil {
 			row = rowIterator.next();
 			//se obtiene las celdas por fila
 //			System.out.println(sheet.getRow(fila).getCell(columna).getStringCellValue() + " VS " +valor);
+			
+			try {
 			if(sheet.getRow(fila).getCell(columna).getStringCellValue().compareTo(valor)==0){
 				break;
 			}else {
 				fila++;
 			}
+			}catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+				
+
 		}
 		return(fila);
 	
