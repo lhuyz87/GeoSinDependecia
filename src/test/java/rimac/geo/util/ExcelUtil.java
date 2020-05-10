@@ -60,6 +60,12 @@ public class ExcelUtil {
 			fileOutputStream.close();
 		}
 	}
+	
+	public void cerrarWb2() throws Exception {
+		if (workbook != null) {
+			workbook.close();
+		}
+	}
 
 	public void copiarPlantillas() {
 		System.out.println("Entrando a Copiar Plantilla...");
@@ -210,7 +216,7 @@ public class ExcelUtil {
 
       try {
        //Initialize
-//    	  System.out.println("############" + ExcelSheetPath);
+    	  System.out.println("############" + ExcelSheetPath);
     		File file = new File(ExcelSheetPath);
     		
     		FileInputStream fileInputStream = new FileInputStream(file);
@@ -269,7 +275,7 @@ public class ExcelUtil {
     	sheet.getRow(row).getCell(column).setCellType(CellType.STRING);
 //        System.out.print("\n Celda: " + wrksheet.getRow(row).getCell(column).getStringCellValue().toString() + "\n");
 //        System.out.print("\n *****");
-    	workbook.close();
+    	
         return sheet.getRow(row).getCell(column).getStringCellValue();
     }
 

@@ -87,15 +87,15 @@ public class AppRegistrarCaso extends PageObject {
 		pageObjectUtil.seleniumEscribirUntil(getDriver(), getWDW(), xpathNuevoCaso.txtReferencia, referencia, Keys.TAB);
 	}
 	
-	public void seleccionarenviar() {
+	public void seleccionarenviar() throws Exception {
 		
 		String Coordenadas=pageObjectUtil.obtenerAtributo(getDriver(), getWDW(), xpathNuevoCaso.lblCoordenadas, "value");
-		System.out.println("Grabar información de placas"  + Coordenadas + " GlobalFila " + GlobalFila  + "GlobalPlaca"  +GlobalPlaca);
+		System.out.println("Grabar información de placas"  + Coordenadas + " GlobalFila " + GlobalFila  + " GlobalPlaca"  +GlobalPlaca);
 		try {
 			excelUtil.inciarExcel(Constantes.featRutaMobile, "Mobile");
 			excelUtil.WriteCell(0, GlobalFila, Coordenadas);
 			excelUtil.WriteCell(1, GlobalFila, GlobalPlaca);
-
+			excelUtil.cerrarWb2();
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println(e.getMessage());
