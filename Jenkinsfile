@@ -15,11 +15,11 @@ pipeline {
     
     stages {
     
-        stage ('Build') {
-            steps {
+        //stage ('Build') {
+          //  steps {
                 //sh ("mvn clean verify")
             }
-        }
+        //}
         
         stage ('Ejecutar Pruebas') {
         	steps {
