@@ -21,8 +21,8 @@ Feature: Representante Atencion Vehicular
     ###DATOS###@DataPrueba|1@01-RegistrarAtencion
     Examples: 
       |0|usuario|password|placa|telefono|direccion|referencia|mensaje|estado|resultado|
-      |6|usuario.test.geo@gmail.com |Rimac2019#|ABA354|987654322|tambo real 236|referencia de prueba|Registro realizado con éxito.|Solicitado| |
-      |7|usuario.test.geo@gmail.com |Rimac2019#|ABA355|987654323|Miraflores|referencia de prueba|Registro realizado con éxito.|Solicitado| |
+      |7|usuario.test.geo@gmail.com |Rimac2019#|ABA364|987654323|Miraflores|referencia de prueba|Registro realizado con éxito.|Solicitado| |
+      |8|usuario.test.geo@gmail.com |Rimac2019#|ABA365|987654324|Avenida juan de arona 780, San isidro|referencia de prueba|Registro realizado con éxito.|Solicitado| |
 
   @RegistrarPlacaEnUso
   Scenario Outline: Registrar placas con atenciones en proceso
@@ -38,5 +38,5 @@ Feature: Representante Atencion Vehicular
     ###DATOS###@DataPrueba|1@01-RegistrarAtencion
     Examples: 
       |0|usuario|password|placa|telefono|direccion|referencia|mensaje|estado|resultado|
-      |6|usuario.test.geo@gmail.com |Rimac2019#|ABA354|987654322|tambo real 236|referencia de prueba|Registro realizado con éxito.|Solicitado| |
-      |7|usuario.test.geo@gmail.com |Rimac2019#|ABA355|987654323|Miraflores|referencia de prueba|Registro realizado con éxito.|Solicitado| |
+      |7|usuario.test.geo@gmail.com |Rimac2019#|ABA364|987654323|Miraflores|referencia de prueba|Registro realizado con éxito.|Solicitado| |
+      |8|usuario.test.geo@gmail.com |Rimac2019#|ABA365|987654324|Avenida juan de arona 780, San isidro|referencia de prueba|Registro realizado con éxito.|Solicitado| |

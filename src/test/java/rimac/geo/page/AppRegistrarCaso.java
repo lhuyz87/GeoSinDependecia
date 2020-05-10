@@ -93,12 +93,12 @@ public class AppRegistrarCaso extends PageObject {
 		System.out.println("Grabar información de placas"  + Coordenadas + " GlobalFila " + GlobalFila  + " GlobalPlaca"  +GlobalPlaca);
 		try {
 			excelUtil.inciarExcel(Constantes.featRutaMobile, "Mobile");
-			String valor_cor_grab= excelUtil.WriteCell(0, GlobalFila, Coordenadas);
-			String valor_placa_grab= excelUtil.WriteCell(1, GlobalFila, GlobalPlaca);
+			String valor_cor_grab= ExcelUtil.WriteCell(0, GlobalFila, Coordenadas);
+			String valor_placa_grab= ExcelUtil.WriteCell(1, GlobalFila, GlobalPlaca);
 			
 			System.out.println("**** " + valor_cor_grab);
 			System.out.println("**** " + valor_placa_grab);
-			excelUtil.CloseExcel();
+			ExcelUtil.CloseExcel();
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println(e.getMessage());
