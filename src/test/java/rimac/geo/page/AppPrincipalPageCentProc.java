@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.ibm.icu.impl.InvalidFormatException;
@@ -58,9 +59,6 @@ public class AppPrincipalPageCentProc extends PageObject {
 		
 		GlobalPlaca=placa;
 	}
-	
-	
-	
 	
 	public void seleccionaAsignarProcurador() {
 		pageObjectUtil.sleep(3);
