@@ -3,6 +3,8 @@ package rimac.geo.page;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -53,7 +55,7 @@ public class AppPrincipalPageCentProc extends PageObject {
 	
 	public void buscarPlaca(String placa) {
 		pageObjectUtil.sleep(3);
-		System.out.println("PLACA"   +  placa);
+		System.out.println("PLACA "   +  placa);
 		pageObjectUtil.seleniumEscribirUntil(getDriver(), getWDW(), xpathPagPrincipal.txtPlaca, placa, null);
 		pageObjectUtil.seleniumClickUntil(getDriver(), getWDW(), xpathPagPrincipal.btnBuscar);
 		
@@ -63,6 +65,13 @@ public class AppPrincipalPageCentProc extends PageObject {
 	public void seleccionaAsignarProcurador() {
 		pageObjectUtil.sleep(3);
 		System.out.println("BOTON ASIGNAR");
+		
+		
+//		JavascriptExecutor js = (JavascriptExecutor) getDriver(); 
+//		getDriver().findElement(By.xpath("//td[text()='Solicitado']//following::td[1]"));
+//		js.executeScript("getDriver().findElement(By.xpath('//td[text()='Solicitado']//following::td[1]')).click();");
+//		
+	
 		pageObjectUtil.seleniumClickUntil(getDriver(), getWDW(), xpathPagPrincipal.btnDerivarFiltrado);
 		
 	}

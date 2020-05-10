@@ -14,4 +14,5 @@ Feature: Central de procuración
     ###DATOS###@DataPrueba|1@02-AsignarProcurador
     Examples: 
       |0|usuario|password|placa|procurador|estado|
-      |1|clegall@gmail.com|Test2019#|ABA348|PROCURADOR AUTO2|En camino|
+      |7|clegall@gmail.com|Test2019#|ABA355|PROCURADOR AUTO2|En camino|
+      |8|clegall@gmail.com|Test2019#|ABA356|PROCURADOR AUTO3|En camino|
