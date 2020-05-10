@@ -39,7 +39,6 @@ public class XpathPagPrincipalCentProc {
 //	public final String btnDerivarFiltrado="//*[@id="+aux+"]/section/div[2]/table/tbody/tr/td[9]/button";
 	public final String btnDerivarFiltrado="//td[text()='Solicitado']//following::td[1]//*[@title='Seleccionar Procurador']";
 //	public final String btnDerivarFiltrado="//td[text()='Solicitado']//following::td[1]";
-//	public final String btnDerivarFiltrado="//*[@title='Seleccionar Procurador']";
 	
 	public final String lstSelAgrupador="//select[@name='form_caso_proveedor']";
 	public final String btnAsignar ="//input[@value='Asignar']";
