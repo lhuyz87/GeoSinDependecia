@@ -63,6 +63,7 @@ public class AppPrincipalPageCentProc extends PageObject {
 	
 	public void seleccionaAsignarProcurador() {
 		pageObjectUtil.sleep(3);
+		System.out.println("BOTON ASIGNAR");
 		pageObjectUtil.seleniumClickUntil(getDriver(), getWDW(), xpathPagPrincipal.btnDerivarFiltrado);
 		
 	}
@@ -91,6 +92,7 @@ public class AppPrincipalPageCentProc extends PageObject {
 			e.printStackTrace();
 		}	
 		
+		System.out.println("LISTA DE PROCURADORES");
 		pageObjectUtil.seleniumComboSelect(getDriver(), xpathPagPrincipal.lstSelAgrupador, procurador);
 		
 		
@@ -98,6 +100,7 @@ public class AppPrincipalPageCentProc extends PageObject {
 	
 	public void seleccionarAsignarProcuradorLista() {
 		pageObjectUtil.sleep(2);
+		System.out.println("Boton de asinacion");
 		pageObjectUtil.seleniumClickUntil(getDriver(), getWDW(), xpathPagPrincipal.btnAsignar);
 		pageObjectUtil.sleep(3);
 	}
