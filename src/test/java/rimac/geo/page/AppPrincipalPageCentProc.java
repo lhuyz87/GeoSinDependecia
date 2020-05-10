@@ -52,6 +52,7 @@ public class AppPrincipalPageCentProc extends PageObject {
 	
 	public void buscarPlaca(String placa) {
 		pageObjectUtil.sleep(3);
+		System.out.println("PLACA"   +  placa);
 		pageObjectUtil.seleniumEscribirUntil(getDriver(), getWDW(), xpathPagPrincipal.txtPlaca, placa, null);
 		pageObjectUtil.seleniumClickUntil(getDriver(), getWDW(), xpathPagPrincipal.btnBuscar);
 		

@@ -24,6 +24,7 @@ public class AppCentralProcuracion {
 	@Step
 	public void buscarPlaca(String placa) {
 		appPrincipalPageCentProc.buscarPlaca(placa);
+		
 	}
 	
 	@Step
