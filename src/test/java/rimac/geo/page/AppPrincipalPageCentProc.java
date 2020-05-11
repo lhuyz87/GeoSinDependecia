@@ -86,19 +86,19 @@ public class AppPrincipalPageCentProc extends PageObject {
 //		pageObjectUtil.insertarKey(getDriver(),xpathPagPrincipal.lstSelAgrupador ,Keys.ENTER);
 //		
 
-		try {
-			excelUtil.inciarExcel(Constantes.featRutaMobile, "Mobile");
-			int fila = ExcelUtil.buscar_valor( 1,GlobalPlaca);
-			System.out.println("************   " + fila);
-			ExcelUtil.WriteCell(2, fila, procurador);
-			ExcelUtil.CloseExcel();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvalidFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}	
+//		try {
+//			excelUtil.inciarExcel(Constantes.featRutaMobile, "Mobile");
+//			int fila = ExcelUtil.buscar_valor( 1,GlobalPlaca);
+//			System.out.println("************   " + fila);
+//			ExcelUtil.WriteCell(2, fila, procurador);
+//			ExcelUtil.CloseExcel();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (InvalidFormatException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}	
 		
 		System.out.println("LISTA DE PROCURADORES");
 		pageObjectUtil.seleniumComboSelect(getDriver(), xpathPagPrincipal.lstSelAgrupador, procurador);
