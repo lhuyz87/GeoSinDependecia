@@ -26,7 +26,7 @@ pipeline {
         		script {
         			try {
         				//sh ("mvn verify package -P Rimac")
-        				sh ("mvn test -Dcucumber.options=\"src/test/resources/features/ --tags \'${ESCENARIO}\' --glue rimac\"")
+        				sh ("mvn surefire:test -Dcucumber.options=\"src/test/resources/features/ --tags \'${ESCENARIO}\' --glue rimac\"")
         				sh ("mvn serenity:aggregate")
         				echo 'Ejecucion de pruebas sin errores...'
         			}
