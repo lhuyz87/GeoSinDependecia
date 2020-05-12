@@ -21,9 +21,9 @@ Feature: Representante Atencion Vehicular
     ###DATOS###@DataPrueba|1@01-RegistrarAtencion
     Examples: 
       |0|usuario|password|placa|telefono|direccion|referencia|mensaje|estado|resultado|
-      |1|usuario.test.geo@gmail.com |Rimac2019#|BRZ456|987654321|Avenida juan de arona 780, San isidro|referencia de prueba|Registro realizado con éxito.|Solicitado| |
-      |2|usuario.test.geo@gmail.com |Rimac2019#|YIM481|987654322|tambo real|referencia de prueba|Registro realizado con éxito.|Solicitado| |
-      |3|usuario.test.geo@gmail.com |Rimac2019#|JLG579|987654323|Miraflores|referencia de prueba|Registro realizado con éxito.|Solicitado| |
+      |1|usuario.test.geo@gmail.com |Rimac2019#|ABA417|987654321|Avenida juan de arona 780, San isidro|referencia de prueba|Registro realizado con éxito.|Solicitado| |
+      |2|usuario.test.geo@gmail.com |Rimac2019#|ABA418|987654322|tambo real 236|referencia de prueba|Registro realizado con éxito.|Solicitado| |
+      |3|usuario.test.geo@gmail.com |Rimac2019#|ABA419|987654323|Miraflores|referencia de prueba|Registro realizado con éxito.|Solicitado| |
 
   @RegistrarPlacaEnUso
   Scenario Outline: Registrar placas con atenciones en proceso
@@ -38,13 +38,7 @@ Feature: Representante Atencion Vehicular
 
     ###DATOS###@DataPrueba|1@03-PlacaEnUso
     Examples: 
-      |0|usuario|password|placa|telefono|direccion|referencia|mensaje|estado|resultado|
-      |1|usuario.test.geo@gmail.com |Rimac2019#|*|987654321|Avenida juan de arona 780, San isidro|referencia de prueba|Registro realizado con éxito.|Solicitado| |
-      |2|usuario.test.geo@gmail.com |Rimac2019#|*|987654322|tambo real|referencia de prueba|Registro realizado con éxito.|Solicitado| |
-      |3|usuario.test.geo@gmail.com |Rimac2019#|*|987654323|Miraflores|referencia de prueba|Registro realizado con éxito.|Solicitado| |
-      |4|usuario.test.geo@gmail.com |Rimac2019#|*|987654324|Avenida juan de arona 780, San isidro|referencia de prueba|Registro realizado con éxito.|Solicitado| |
-      |5|usuario.test.geo@gmail.com |Rimac2019#|*|987654324|Avenida juan de arona 780, San isidro|referencia de prueba|Registro realizado con éxito.|Solicitado| |
-      |6|usuario.test.geo@gmail.com |Rimac2019#|*|987654322|tambo real|referencia de prueba|Registro realizado con éxito.|Solicitado| |
-      |7|usuario.test.geo@gmail.com |Rimac2019#|*|987654323|Miraflores|referencia de prueba|Registro realizado con éxito.|Solicitado| |
-      |8|usuario.test.geo@gmail.com |Rimac2019#|*|987654324|Avenida juan de arona 780, San isidro|referencia de prueba|Registro realizado con éxito.|Solicitado| |
-      |9|usuario.test.geo@gmail.com |Rimac2019#|*|987654324|Avenida juan de arona 780, San isidro|referencia de prueba|Registro realizado con éxito.|Solicitado| |
+      |0|usuario|password|placa|telefono|direccion|referencia|mensaje|resultado|
+      |1|usuario.test.geo@gmail.com |Rimac2019#|ABA417|987654321|Avenida juan de arona 780, San isidro|referencia de prueba|El caso no puede ser registrado. Ya existe otro caso en proceso con la misma placa| |
+      |2|usuario.test.geo@gmail.com |Rimac2019#|ABA418|987654322|tambo real 236|referencia de prueba|El caso no puede ser registrado. Ya existe otro caso en proceso con la misma placa| |
+      |3|usuario.test.geo@gmail.com |Rimac2019#|ABA419|987654323|Miraflores|referencia de prueba|El caso no puede ser registrado. Ya existe otro caso en proceso con la misma placa| |
