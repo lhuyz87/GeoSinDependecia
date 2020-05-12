@@ -85,11 +85,22 @@ public class AppPrincipalPageCentProc extends PageObject {
 //		pageObjectUtil.sleep(1);
 //		pageObjectUtil.insertarKey(getDriver(),xpathPagPrincipal.lstSelAgrupador ,Keys.ENTER);
 //		
-
+		
+		System.out.println("LISTA DE PROCURADORES");
+		
+		if(procurador.length()>1) {
+		pageObjectUtil.seleniumComboSelect(getDriver(), xpathPagPrincipal.lstSelAgrupador, procurador);
+		}else {
+			
+			System.out.println("entra a else");	
+		procurador = pageObjectUtil.seleniumComboForNumber(getDriver(), xpathPagPrincipal.lstSelAgrupador, 1);
+		
+		}
+		
 //		try {
 //			excelUtil.inciarExcel(Constantes.featRutaMobile, "Mobile");
 //			int fila = ExcelUtil.buscar_valor( 1,GlobalPlaca);
-//			System.out.println("************   " + fila);
+////			System.out.println("************   " + fila);
 //			ExcelUtil.WriteCell(2, fila, procurador);
 //			ExcelUtil.CloseExcel();
 //		} catch (IOException e) {
@@ -99,16 +110,15 @@ public class AppPrincipalPageCentProc extends PageObject {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}	
-		
-		System.out.println("LISTA DE PROCURADORES");
-		pageObjectUtil.seleniumComboSelect(getDriver(), xpathPagPrincipal.lstSelAgrupador, procurador);
+//		
+
 		
 		
 	}
 	
 	public void seleccionarAsignarProcuradorLista() {
 		pageObjectUtil.sleep(2);
-		System.out.println("Boton de asinacion");
+//		System.out.println("Boton de asinacion");
 		pageObjectUtil.seleniumClickUntil(getDriver(), getWDW(), xpathPagPrincipal.btnAsignar);
 		pageObjectUtil.sleep(3);
 	}

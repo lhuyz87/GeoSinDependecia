@@ -2,8 +2,10 @@ package rimac.geo.util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
-import rimac.geo.inout.ConsultarPolizaInout;
+import rimac.geo.inout.LeerDataDriven;
 import rimac.geo.util.ExcelUtil;
 
 public class ExcelUtilPropio extends ExcelUtil {
@@ -43,7 +45,7 @@ public class ExcelUtilPropio extends ExcelUtil {
 			switch (excelSplit[0]) {
 			case "DataPrueba":
 				
-				data = ConsultarPolizaInout.getInstancia().leerDD(hoja);
+				data = LeerDataDriven.getInstancia().leerDD(hoja);
 				
 				break;
 			default:
@@ -56,4 +58,25 @@ public class ExcelUtilPropio extends ExcelUtil {
 
 		return data;
 	}
+	
+	
+	public String generarPlaca() {
+		String placa="";
+		
+		int leftLimit = 97; // letter 'a'
+		int rightLimit = 122; // letter 'z'
+		int targetStringLength = 3;
+		Random random = new Random();
+
+		String PlacaString = random.ints(leftLimit, rightLimit + 1).limit(targetStringLength).collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString().toUpperCase();
+		int PlacaNumerica = ThreadLocalRandom.current().nextInt(100, 999 + 1);
+		placa=PlacaString.concat(""+PlacaNumerica);
+
+		return placa;
+	}
+	
+	
+	
+	
+	
 }

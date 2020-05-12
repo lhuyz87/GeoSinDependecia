@@ -14,6 +14,7 @@ import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.DefaultUrl;
 import rimac.geo.util.ExcelUtil;
+import rimac.geo.util.ExcelUtilPropio;
 import rimac.geo.util.PageObjectUtil;
 import rimac.geo.xpath.XpathLogin;
 
@@ -24,13 +25,13 @@ public class AppLoginPage extends PageObject {
 	// propios
 	private WebDriverWait wdw = null;
 	private long wdwTimeOut = 300L;
+	private ExcelUtilPropio excelUtilPropio = ExcelUtilPropio.getInstancia();
 
 	// xpath
 	protected XpathLogin xpathLogin = XpathLogin.getInstancia();
 
 	// util
 	protected PageObjectUtil pageObjectUtil = PageObjectUtil.getInstancia();
-
 	protected ExcelUtil excelUtil = new ExcelUtil();
 
 	public long getWdwTimeOut() {
@@ -38,11 +39,13 @@ public class AppLoginPage extends PageObject {
 	}
 
 	public void inicializar() {
+	
 		open();
 		getDriver().manage().deleteAllCookies();
 		getDriver().manage().window().maximize();
 		// getDriver().manage().window().fullscreen();
 		getDriver().manage().timeouts().implicitlyWait(1L, TimeUnit.SECONDS);
+		
 	}
 
 	protected WebDriverWait getWDW() {
@@ -59,11 +62,13 @@ public class AppLoginPage extends PageObject {
 	public void ingresarUsuario(String usuario, String password) {
 		
 		// Escribir usuario y password
+		
+
 	
 		pageObjectUtil.seleniumEscribirUntil(getDriver(), getWDW(), xpathLogin.usuario, usuario, Keys.ENTER);
 		
 		pageObjectUtil.seleniumEscribirUntil(getDriver(), getWDW(), xpathLogin.password, password, null);
-		
+		pageObjectUtil.sleep(2);
 		pageObjectUtil.seleniumClickUntil(getDriver(), getWDW(), xpathLogin.ingresar);
 	
 		pageObjectUtil.sleep(3);

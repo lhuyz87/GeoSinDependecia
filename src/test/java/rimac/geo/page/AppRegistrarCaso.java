@@ -20,6 +20,7 @@ import rimac.geo.util.PageObjectUtil;
 import rimac.geo.xpath.XpathNuevoCaso;
 import rimac.geo.xpath.XpathPagPrincipalAtenVeh;
 import rimac.geo.util.ExcelUtil;
+import rimac.geo.util.ExcelUtilPropio;
 
 
 public class AppRegistrarCaso extends PageObject {
@@ -34,6 +35,8 @@ public class AppRegistrarCaso extends PageObject {
 	// util
 	protected PageObjectUtil pageObjectUtil = PageObjectUtil.getInstancia();
 	protected ExcelUtil excelUtil = new ExcelUtil();
+	
+	protected ExcelUtilPropio excelUtilPropio = ExcelUtilPropio.getInstancia();
 
 	
 	public static String GlobalPlaca="";
@@ -57,6 +60,7 @@ public class AppRegistrarCaso extends PageObject {
 	
 	public void ingresarplaca(String placa) {
 		
+		
 		pageObjectUtil.seleniumUntil(getDriver(), getWDW(), xpathNuevoCaso.txtPlaca);
 		pageObjectUtil.sleep(5);
 		pageObjectUtil.seleniumEscribirUntil(getDriver(), getWDW(), xpathNuevoCaso.txtPlaca, placa, null);
@@ -67,7 +71,7 @@ public class AppRegistrarCaso extends PageObject {
 	}
 	
 	public void ingresartelefono(String telefono) {
-		pageObjectUtil.sleep(4);
+		pageObjectUtil.sleep(2);
 		pageObjectUtil.seleniumEscribirUntil(getDriver(), getWDW(), xpathNuevoCaso.txtTelefono, telefono, null);
 	}
 	

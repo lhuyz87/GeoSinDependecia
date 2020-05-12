@@ -1110,6 +1110,7 @@ public class PageObjectUtil {
 			String busca = "buscando";
 			while (i <= iSize && busca.equals("buscando")) {
 				String sValue = elementCount.get(i).getText().trim();
+				
 				if (sValue.contains(valor)) {
 					busca = "encontro";
 					elementCount.get(i).click();
@@ -1119,6 +1120,29 @@ public class PageObjectUtil {
 			}
 		}
 	}
+	
+	
+	public String seleniumComboForNumber(WebDriver webDriver, final String path, int valor) {
+		WebElement select = webDriver.findElement(By.xpath(path));
+		String sValue ="";
+		if (select.isEnabled()) {
+			Select oSelect = new Select(select);
+			List<WebElement> elementCount = oSelect.getOptions();
+			int iSize = elementCount.size();
+
+			String busca = "buscando";
+
+				 sValue = elementCount.get(valor).getText().trim();
+				elementCount.get(valor).click();
+
+
+			
+		}
+		
+	
+		return sValue;
+	}
+	
 
 	/**
 	 * selenium; lista los elementos DOM encontrados mediante el xpath, luego espera

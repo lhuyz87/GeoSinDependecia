@@ -2,9 +2,11 @@ package rimac.geo.inout;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -13,26 +15,27 @@ import org.apache.poi.ss.usermodel.Sheet;
 import rimac.geo.util.ExcelUtilPropio;
 import rimac.geo.util.Variables;
 import rimac.geo.util.Constantes;
+import rimac.geo.util.ExcelUtil;
 import rimac.geo.util.Inout;
 
-public class ConsultarPolizaInout implements Inout {
+public class LeerDataDriven implements Inout {
 
 	private ExcelUtilPropio excelUtilPropio = ExcelUtilPropio.getInstancia();
-
+	private ExcelUtil excelUtil = new ExcelUtil();
 	// singleton
-	private static ConsultarPolizaInout obj = null;
+	private static LeerDataDriven obj = null;
 
-	private ConsultarPolizaInout() {
+	private LeerDataDriven() {
 	}
 
-	public static ConsultarPolizaInout getInstancia() {
+	public static LeerDataDriven getInstancia() {
 		instanciar();
 		return obj;
 	}
 
 	private synchronized static void instanciar() {
 		if (obj == null) {
-			obj = new ConsultarPolizaInout();
+			obj = new LeerDataDriven();
 		}
 	}
 
@@ -62,7 +65,11 @@ public class ConsultarPolizaInout implements Inout {
 //			System.out.println("ULTIMA FILA " + ultimaFilaAfectada);
 //			System.out.println("Columna Afectada " + ultimaColumanaAfectada);
 			for (int i = 0; i <= ultimaFilaAfectada; i++) {
+				try{
 				usar = sheet.getRow(i).getCell(0, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).getStringCellValue();
+				}catch (Exception e) {
+					// TODO: handle exception
+				}
 				reg = new ArrayList<String>();
 				reg.add(String.valueOf(i));
 				if (usar.toUpperCase().equals(Constantes.usar)||usar.compareToIgnoreCase("USAR")==0) {
@@ -70,16 +77,29 @@ public class ConsultarPolizaInout implements Inout {
 //					System.out.println("ROW  " + i + "USAR:    " + usar);
 					for(int j=1; j<ultimaColumanaAfectada;j++) {
 //					System.out.println("columna  " + j);	
-					reg.add(sheet.getRow(i).getCell(j, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).getStringCellValue());
+						if(sheet.getSheetName().compareTo("01-RegistrarAtencion")==0&&sheet.getRow(i).getCell(3).getStringCellValue().compareTo("*")==0) {
+							String placa =excelUtilPropio.generarPlaca();
+			
+							sheet.getRow(i).createCell(3);
+					    	sheet.getRow(i).getCell(3).setCellValue(placa);
+					    	sheet.getRow(i).getCell(3).setCellType(CellType.STRING);
+					    	
+						}
+				
+						reg.add(sheet.getRow(i).getCell(j, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).getStringCellValue());
+
 				
 					}
 					data.add(reg);
-				}else {}
+				}
 				
 			}	
-				
-			excelUtilPropio.cerrarIn(fileInputStream);
-			excelUtilPropio.cerrarWb(workbook);
+			
+
+			FileOutputStream fileOutputStream = new FileOutputStream(file);
+	        workbook.write(fileOutputStream);
+	        workbook.close();
+	        fileOutputStream.close();
 		}
 
 		return data;
