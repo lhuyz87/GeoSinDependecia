@@ -128,7 +128,6 @@ public class AppPrincipalPageCentProc extends PageObject {
 		
 		pageObjectUtil.waitForPageLoad(getDriver());
 		pageObjectUtil.seleniumUntil(getDriver(), getWDW(),  xpathPagPrincipal.lblEstadoFiltrado);
-//		pageObjectUtil.sleep(15);
 		Serenity.takeScreenshot();	
 		String estadoMostrado= pageObjectUtil.seleniumGetTexto(getDriver(), xpathPagPrincipal.lblEstadoFiltrado, 0);
 		System.out.println("MENSAJE MOSTRADO  "  + estadoMostrado );
