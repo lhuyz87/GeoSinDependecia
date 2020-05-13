@@ -77,6 +77,7 @@ public class LeerDataDriven implements Inout {
 //					System.out.println("ROW  " + i + "USAR:    " + usar);
 					for(int j=1; j<ultimaColumanaAfectada;j++) {
 //					System.out.println("columna  " + j);	
+
 						if(sheet.getSheetName().compareTo("01-RegistrarAtencion")==0&&sheet.getRow(i).getCell(3).getStringCellValue().compareTo("*")==0) {
 							String placa =excelUtilPropio.generarPlaca();
 			
@@ -85,7 +86,6 @@ public class LeerDataDriven implements Inout {
 					    	sheet.getRow(i).getCell(3).setCellType(CellType.STRING);
 					    	
 						}
-				
 						reg.add(sheet.getRow(i).getCell(j, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).getStringCellValue());
 
 				

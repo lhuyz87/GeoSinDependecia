@@ -85,9 +85,7 @@ public class Constantes {
 	
 	//dataMobile
 	public static final String featRutaMobile = "src/test/resources/dataDriven/dataMobile/DataForMobile.xlsx";
-	
-
-	// EPI constantes
+// EPI constantes
 	public static final String protocolo = "https";
 	public static final String host = "ampdpka8l5.execute-api.us-east-1.amazonaws.com";
 	public static final String accessKey = "AKIAW6L6BAXN6DVTJVEF";
