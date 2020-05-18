@@ -21,8 +21,8 @@ Feature: Representante Atencion Vehicular
     ###DATOS###@DataPrueba|1@01-RegistrarAtencion
     Examples: 
       |0|usuario|password|placa|telefono|direccion|referencia|mensaje|estado|resultado|
-      |1|usuario.test.geo@gmail.com |Rimac2019#|ABA424|987654321|Avenida juan de arona 780, San isidro|referencia de prueba|Registro realizado con éxito.|Solicitado| |
-      |2|usuario.test.geo@gmail.com |Rimac2019#|ABA425|987654322|tambo real 236|referencia de prueba|Registro realizado con éxito.|Solicitado| |
+      |1|usuario.test.geo@gmail.com |Rimac2019#|ABA435|987654321|Avenida juan de arona 780, San isidro|referencia de prueba|Registro realizado con éxito.|Solicitado| |
+      |2|usuario.test.geo@gmail.com |Rimac2019#|ABA436|987654322|tambo real 236|referencia de prueba|Registro realizado con éxito.|Solicitado| |
 
   @RegistrarPlacaEnUso
   Scenario Outline: Registrar placas con atenciones en proceso
@@ -38,6 +38,6 @@ Feature: Representante Atencion Vehicular
     ###DATOS###@DataPrueba|1@03-PlacaEnUso
     Examples: 
       |0|usuario|password|placa|telefono|direccion|referencia|mensaje|resultado|
-      |1|usuario.test.geo@gmail.com |Rimac2019#|ABA424|987654321|Avenida juan de arona 780, San isidro|referencia de prueba|El caso no puede ser registrado. Ya existe otro caso en proceso con la misma placa| |
-      |2|usuario.test.geo@gmail.com |Rimac2019#|ABA425|987654322|tambo real 236|referencia de prueba|El caso no puede ser registrado. Ya existe otro caso en proceso con la misma placa| |
-      |3|usuario.test.geo@gmail.com |Rimac2019#|ABA426|987654323|Miraflores|referencia de prueba|El caso no puede ser registrado. Ya existe otro caso en proceso con la misma placa| |
+      |1|usuario.test.geo@gmail.com |Rimac2019#|ABA435|987654321|Avenida juan de arona 780, San isidro|referencia de prueba|El caso no puede ser registrado. Ya existe otro caso en proceso con la misma placa| |
+      |2|usuario.test.geo@gmail.com |Rimac2019#|ABA436|987654322|tambo real 236|referencia de prueba|El caso no puede ser registrado. Ya existe otro caso en proceso con la misma placa| |
+      |3|usuario.test.geo@gmail.com |Rimac2019#|ABA437|987654323|Miraflores|referencia de prueba|El caso no puede ser registrado. Ya existe otro caso en proceso con la misma placa| |
